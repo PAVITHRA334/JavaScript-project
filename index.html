@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Shopping Mart</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        h1 {
+            color: BLACK;
+            padding: 10px 0;
+            text-align: center;
+            margin: 0;
+        }
+        .product-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            padding: 20px;
+        }
+        .product-card {
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 10px;
+            width: 250px;
+            text-align: center;
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .product-card img {
+            width: 200px;
+            height: 200px;
+            border-radius: 5px;
+        }
+        .product-card button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .product-card button:hover {
+            background-color: #45a049;
+        }
+        .cart-container {
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .cart-item {
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 10px;
+            margin: 10px 0;
+            width: 90%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: #f9f9f9;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .cart-item img {
+            width: 80px;
+            height: 80px;
+            border-radius: 5px;
+            margin-right: 10px;
+        }
+        .cart-item-info {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        .cart-item-info span {
+            margin-bottom: 5px;
+        }
+  
+  
+        .remove-button {
+            background-color: #f44336;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .remove-button:hover {
+            background-color: #d32f2f;
+        }
+        .buy-button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 18px;
+        }
+        .buy-button:hover {
+            background-color: #45a049;
+        }
+    </style>
+    
+</head>
+<body>
+    <center><h1>A to Z MART</h1></center>
+    <hr>
+
+    <div class="product-container">
+        <!-- Product 1 -->
+        <div class="product-card">
+            <img src="https://images.pexels.com/photos/248412/pexels-photo-248412.jpeg?auto=compress&cs=tinysrgb&w=600" alt="IMG" />
+            <h3>MILK</h3>
+            <p>Price: Rs 50/-</p>
+            <button onclick="addToCart('Milk', 50, 'https://images.pexels.com/photos/248412/pexels-photo-248412.jpeg?auto=compress&cs=tinysrgb&w=600')">Add to Cart</button>
+        </div>
+        
+        <!-- Product 2 -->
+        <div class="product-card">
+            <img src="https://images.pexels.com/photos/3771829/pexels-photo-3771829.jpeg?auto=compress&cs=tinysrgb&w=600" alt="IMG" />
+            <h3>BREAD</h3>
+            <p>Price: Rs 30/-</p>
+            <button onclick="addToCart('Bread', 30, 'https://images.pexels.com/photos/3771829/pexels-photo-3771829.jpeg?auto=compress&cs=tinysrgb&w=600')">Add to Cart</button>
+        </div>
+
+        <!-- Product 3 -->
+        <div class="product-card">
+            <img src="https://images.pexels.com/photos/736230/pexels-photo-736230.jpeg?auto=compress&cs=tinysrgb&w=600" alt="IMG" />
+            <h3>ROSE</h3>
+            <p>Price: Rs 60/-</p>
+            <button onclick="addToCart('ROSE', 60, 'https://images.pexels.com/photos/736230/pexels-photo-736230.jpeg?auto=compress&cs=tinysrgb&w=600')">Add to Cart</button>
+        </div>
+        <div class="product-card">
+            <img src="https://images.pexels.com/photos/965990/pexels-photo-965990.jpeg?auto=compress&cs=tinysrgb&w=600" alt="IMG" />
+            <h3>PERFUME</h3>
+            <p>Price: Rs 160/-</p>
+            <button onclick="addToCart('PERFUME', 160, 'https://images.pexels.com/photos/965990/pexels-photo-965990.jpeg?auto=compress&cs=tinysrgb&w=600')">Add to Cart</button>
+        </div>
+        <div class="product-card">
+            <img src="https://images.pexels.com/photos/109275/pexels-photo-109275.jpeg?auto=compress&cs=tinysrgb&w=600" alt="IMG" />
+            <h3>JUICE</h3>
+            <p>Price: Rs 40/-</p>
+            <button onclick="addToCart('JUICE', 40, 'https://images.pexels.com/photos/109275/pexels-photo-109275.jpeg?auto=compress&cs=tinysrgb&w=600')">Add to Cart</button>
+        </div>
+        <div class="product-card">
+            <img src="https://images.pexels.com/photos/159644/art-supplies-brushes-rulers-scissors-159644.jpeg?auto=compress&cs=tinysrgb&w=600" alt="IMG" />
+            <h3>ORGANIZER</h3>
+            <p>Price: Rs 560/-</p>
+            <button onclick="addToCart('ORGANIZER', 560, 'https://images.pexels.com/photos/159644/art-supplies-brushes-rulers-scissors-159644.jpeg?auto=compress&cs=tinysrgb&w=600')">Add to Cart</button>
+        </div>
+        <div class="product-card">
+            <img src="https://images.pexels.com/photos/14808296/pexels-photo-14808296.jpeg?auto=compress&cs=tinysrgb&h=226.525&fit=crop&w=253.17499999999998&dpr=1" alt="IMG" />
+            <h3>WATCH</h3>
+            <p>Price: Rs 200/-</p>
+            <button onclick="addToCart('WATCH', 200, 'https://images.pexels.com/photos/14808296/pexels-photo-14808296.jpeg?auto=compress&cs=tinysrgb&h=226.525&fit=crop&w=253.17499999999998&dpr=1')">Add to Cart</button>
+        </div>
+        <div class="product-card">
+            <img src="https://images.pexels.com/photos/1343504/pexels-photo-1343504.jpeg?auto=compress&cs=tinysrgb&w=600" alt="IMG" />
+            <h3>ICE CREAM</h3>
+            <p>Price: Rs 20/-</p>
+            <button onclick="addToCart('ICE CREAM', 20, 'https://images.pexels.com/photos/1343504/pexels-photo-1343504.jpeg?auto=compress&cs=tinysrgb&w=600')">Add to Cart</button>
+        </div>
+        <div class="product-card">
+            <img src="https://images.pexels.com/photos/207891/pexels-photo-207891.jpeg?auto=compress&cs=tinysrgb&w=600" alt="IMG" />
+            <h3>TOY</h3>
+            <p>Price: Rs 1000/-</p>
+            <button onclick="addToCart('TOY', 1000, 'https://images.pexels.com/photos/207891/pexels-photo-207891.jpeg?auto=compress&cs=tinysrgb&w=600')">Add to Cart</button>
+        </div>
+        <div class="product-card">
+            <img src="https://images.pexels.com/photos/1598507/pexels-photo-1598507.jpeg?auto=compress&cs=tinysrgb&w=600" alt="IMG" />
+            <h3>DRESS</h3>
+            <p>Price: Rs 700/-</p>
+            <button onclick="addToCart('DRESS', 700, 'https://images.pexels.com/photos/1598507/pexels-photo-1598507.jpeg?auto=compress&cs=tinysrgb&w=600')">Add to Cart</button>
+        </div>
+    </div>
+
+    <div class="cart-container" id="cart-container">
+    </div>
+
+    <center>
+        <button class="buy-button" onclick="buyItems()">Buy Now</button>
+    </center>
+
+    <script>
+        let cart = [];
+        function addToCart(name, price, image) {
+            const item = {
+                id: new Date().getTime(), 
+                name: name,
+                price: price,
+                image: image,
+                quantity: 1
+            };
+            const existingItem = cart.find(cartItem => cartItem.name === item.name);
+            if (existingItem) {
+                existingItem.quantity++; 
+            } else {
+                cart.push(item); 
+            }
+            displayCart();
+            alert(item.name + " has been added to the cart!");
+        }
+       
+        function removeFromCart(itemId) {
+            cart = cart.filter(item => item.id !== itemId);
+            displayCart();
+        }
+        function displayCart() {
+            const cartContainer = document.getElementById('cart-container');
+            cartContainer.innerHTML = ''; 
+            if (cart.length === 0) {
+                cartContainer.innerHTML = "<p>Your cart is empty.</p>";
+                return;
+            }
+            cart.forEach(item => {
+                const cartItemDiv = document.createElement('div');
+                cartItemDiv.classList.add('cart-item');
+                cartItemDiv.innerHTML = `
+                    <img src="${item.image}" alt="${item.name}">
+                    <span>${item.name}</span><br>
+                    <span>Price: Rs ${item.price}</span><br>
+                    <button onclick="removeFromCart(${item.id})">Remove</button>`;
+                cartContainer.appendChild(cartItemDiv);
+            });
+        }
+        function buyItems() {
+            if (cart.length === 0) {
+                alert("Your cart is empty! Please add items to the cart.");
+                return;
+            }
+            let total = 0;
+            cart.forEach(item => {
+                total += item.price * item.quantity;
+            });
+            alert(`Thank you for your purchase! Your total is Rs ${total}.`);
+            cart = []; 
+            displayCart(); 
+        }
+    </script>
+</body>
+</html>
